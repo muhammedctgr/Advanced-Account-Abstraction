@@ -42,8 +42,8 @@ Account abstraction allows users to interact with Ethereum using smart contract 
 ### Clone the repository:
 
 ````bash
-git clone https://github.com/eth-infinitism/account-abstraction.git
-cd account-abstraction
+git clone https://github.com/muhammedctgr/Advanced-Account-Abstraction.git
+cd Advanced-Account-Abstraction
 yarn install
 ````
 ### Compilation:
