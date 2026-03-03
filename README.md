@@ -135,6 +135,7 @@ contract MyAccount is BaseAccount {
 - [Homepage](https://www.erc4337.io/)
 - [Blog](https://erc4337.mirror.xyz/)
 - [X Account](https://x.com/erc4337)
+- [X Account](https://x.com/greazely)
 - [YouTube Channel](https://www.youtube.com/@ERC-4337)
 - [Bundlebear](https://www.bundlebear.com/overview/all)
 - [Vitalik Buterin - a history of account abstraction](https://www.youtube.com/watch?v=iLf8qpOmxQc)
