@@ -97,14 +97,14 @@ contract SimpleAccount is BaseAccount, TokenCallbackHandler, UUPSUpgradeable, In
     }
 
     /**
-     * check current account deposit in the entryPoint
+     * check current account deposit in the entryPoint contract
      */
     function getDeposit() public virtual view returns (uint256) {
         return entryPoint().balanceOf(address(this));
     }
 
     /**
-     * deposit more funds for this account in the entryPoint.sol
+     * deposit more funds for this account in the entryPoint contract
      */
     function addDeposit() public payable {
         entryPoint().depositTo{value: msg.value}(address(this));
