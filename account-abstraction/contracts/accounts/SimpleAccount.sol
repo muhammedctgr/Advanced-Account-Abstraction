@@ -123,5 +123,9 @@ contract SimpleAccount is BaseAccount, TokenCallbackHandler, UUPSUpgradeable, In
         (newImplementation);
         _onlyOwner();
     }
+
+    function version() public pure virtual returns (string memory) {
+        return "0.1.0";
+    }
 }
 
