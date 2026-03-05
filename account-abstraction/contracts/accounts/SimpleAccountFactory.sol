@@ -61,4 +61,7 @@ contract SimpleAccountFactory {
                 )
             )));
     }
+
+    function version() public pure virtual returns (string memory) {
+        return "0.1.0";
 }
