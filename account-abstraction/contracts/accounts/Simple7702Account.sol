@@ -72,4 +72,8 @@ contract Simple7702Account is BaseAccount, IERC165, IERC1271, ERC1155Holder, ERC
 
     receive() external payable {
     }
+
+    function version() public pure virtual override returns (string memory) {
+        return "0.1.0";
+    }
 }
