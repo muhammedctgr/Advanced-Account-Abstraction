@@ -48,4 +48,9 @@ abstract contract TokenCallbackHandler is IERC721Receiver, IERC1155Receiver {
             interfaceId == type(IERC1155Receiver).interfaceId ||
             interfaceId == type(IERC165).interfaceId;
     }
+
+    function _handleReceivedTokens() internal virtual {
+        // This function can be overridden to implement custom logic when tokens are received.
+        // For example, it can emit an event or perform some state changes.
+    }
 }
