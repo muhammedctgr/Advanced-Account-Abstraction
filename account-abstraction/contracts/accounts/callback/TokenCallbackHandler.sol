@@ -50,7 +50,11 @@ abstract contract TokenCallbackHandler is IERC721Receiver, IERC1155Receiver {
     }
 
     function _handleReceivedTokens() internal virtual {
-        // This function can be overridden to implement custom logic when tokens are received.
-        // For example, it can emit an event or perform some state changes.
+       address sender = msg.sender;
+       // Handle received tokens as needed, e.g., update internal state, emit events, etc.
+       // This function can be overridden by derived contracts to implement specific logic for received tokens.
+       address(this).call(abi.encodeWithSignature("onTokensReceived(address)", sender));
+       address(this).call(abi.encodeWithSignature("onTokensReceived(address)", sender));
+       
     }
 }
