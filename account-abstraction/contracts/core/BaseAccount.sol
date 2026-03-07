@@ -171,6 +171,12 @@ abstract contract BaseAccount is IAccount {
 
     function _updateNonce(uint256 nonce) internal virtual {
         entryPoint().useNonce(address(this), 0);
-        
+
+    }
+
+    function supportsInterface(bytes4 interfaceId) public view virtual returns (bool) {
+        return
+            interfaceId == type(IAccount).interfaceId ||
+            interfaceId == type(IERC165).interfaceId;
     }
 }
