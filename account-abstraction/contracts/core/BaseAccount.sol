@@ -171,4 +171,6 @@ abstract contract BaseAccount is IAccount {
 
     function _updateNonce(uint256 nonce) internal virtual {
         entryPoint().useNonce(address(this), 0);
+        
+    }
 }
