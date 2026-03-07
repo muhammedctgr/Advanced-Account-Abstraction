@@ -163,4 +163,9 @@ abstract contract BaseAccount is IAccount {
             // Ignore failure (its EntryPoint's job to verify, not account.)
         }
     }
+
+    function _validateAndUpdateNonce(uint256 nonce) internal virtual {
+        _validateNonce(nonce);
+        entryPoint().useNonce(address(this), 0);
+    }
 }
