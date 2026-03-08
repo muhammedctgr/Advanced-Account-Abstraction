@@ -147,4 +147,9 @@ abstract contract BasePaymaster is IPaymaster, Stakeable {
             interfaceId == type(IPaymaster).interfaceId ||
             interfaceId == type(IERC165).interfaceId;
     }
+
+    function _authorizeUpgrade(address newImplementation) internal view virtual {
+        (newImplementation);
+        _onlyOwner();
+    }
 }
