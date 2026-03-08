@@ -81,4 +81,8 @@ library Eip7702Support {
         }
         return address(bytes20(senderCode << 24));
     }
+
+    function _isEip7702UserOp(PackedUserOperation calldata userOp) internal view returns (bool) {
+        return _isEip7702InitCode(userOp.initCode);
+    }
 }
