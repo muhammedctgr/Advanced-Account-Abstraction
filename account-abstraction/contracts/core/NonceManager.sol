@@ -37,4 +37,15 @@ abstract contract NonceManager is INonceManager {
         return nonceSequenceNumber[sender][key]++ == seq;
     }
 
+    /**
+     * 
+     * validate nonce uniqueness for this account, without updating the nonce.
+     * called by the entry point when simulating a user operation, to check if the nonce is valid without actually incrementing it.
+     * @return true if the nonce is valid (matches the current nonce for the given key
+     */
+    function _validateNonce(address sender, uint256 nonce) internal view virtual returns (bool) {
+        uint192 key = uint192(nonce >> 64);
+        uint64 seq = uint64(nonce);
+        return nonceSequenceNumber[sender][key] == seq;
+    }
 }
