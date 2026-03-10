@@ -19,6 +19,14 @@ uint256 constant SIG_VALIDATION_FAILED = 1;
  */
 uint256 constant SIG_VALIDATION_SUCCESS = 0;
 
+/*
+ * For simulation purposes, validateUserOp (and validatePaymasterUserOp)
+ * must return this value in case of signature failure, instead of revert.
+ * This is used when the account doesn't validate the signature by itself, but uses an aggregator.
+ * The aggregator will be called to validate the signature, and if it fails, it will return SIG_VALIDATION_FAILED.
+ */
+uint256 constant AGGREGATOR_VALIDATION_FAILED = 2;
+
 
 /**
  * Returned data from validateUserOp.
@@ -180,3 +188,4 @@ function paymasterDataKeccak(bytes calldata data) pure returns (bytes32 ret) {
             }
         }
     }
+
