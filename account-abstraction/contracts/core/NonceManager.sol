@@ -66,4 +66,12 @@ abstract contract NonceManager is INonceManager {
     function _validateNonceWithKey(address sender, uint192 key) internal view virtual returns (bool) {
         return nonceSequenceNumber[sender][key] == 0;
     }
+
+    /**
+     * get the current nonce for a given key, without updating it.
+     * called by the entry point when simulating a user operation, to get the current nonce for a given key.
+     */
+    function _getNonceWithKey(address sender, uint192 key) internal view virtual returns (uint256) {
+        return nonceSequenceNumber[sender][key] | (uint256(key) << 64);
+    }
 }
