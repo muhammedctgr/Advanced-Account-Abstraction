@@ -83,4 +83,13 @@ abstract contract NonceManager is INonceManager {
     function _getNonceWithKeyAndSeq(address sender, uint192 key, uint64 seq) internal pure virtual returns (uint256) {
         return uint256(seq) | (uint256(key) << 64);
     }
+
+    /**
+     * get the current nonce for a given key, without updating it.
+     * get the current nonce for a given key and sequence number, without updating it.
+     * 
+     */
+    function _getNonceWithSeq(address sender, uint64 seq) internal pure virtual returns (uint256) {
+        return uint256(seq) | (uint256(0) << 64);
+    }
 }
