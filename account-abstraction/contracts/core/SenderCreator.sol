@@ -77,4 +77,16 @@ contract SenderCreator is ISenderCreator {
             revert IEntryPoint.FailedOpWithRevert(0, "AA13 EIP7702 sender init failed", result);
         }
     }
+
+    /**
+     * 
+     */
+    function getSenderAddress(bytes calldata initCode) external view returns (address sender) {
+        address factory = address(bytes20(initCode[0 : 20]));
+        bytes memory initCallData = initCode[20 :];
+        (bool success, bytes memory result) = factory.staticcall(initCallData);
+        if (success && result.length >= 32) {
+            sender = abi.decode(result, (address));
+        }
+    }
 }
