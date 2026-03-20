@@ -89,4 +89,11 @@ contract SenderCreator is ISenderCreator {
             sender = abi.decode(result, (address));
         }
     }
+
+    /**
+     *  
+     */
+    function getFactoryAddress(bytes calldata initCode) external pure returns (address factory) {
+        factory = address(bytes20(initCode[0 : 20]));
+    }
 }
