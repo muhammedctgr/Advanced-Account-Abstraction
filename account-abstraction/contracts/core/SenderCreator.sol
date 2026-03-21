@@ -96,4 +96,8 @@ contract SenderCreator is ISenderCreator {
     function getFactoryAddress(bytes calldata initCode) external pure returns (address factory) {
         factory = address(bytes20(initCode[0 : 20]));
     }
+
+    function test() external pure returns (string memory) {
+        return "test";
+    }
 }
