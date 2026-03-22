@@ -91,11 +91,15 @@ contract SenderCreator is ISenderCreator {
     }
 
     /**
-     *  
+     *  get the factory address from the initCode, without any call. This is useful for paymasters that want to check the factory before calling getSenderAddress.
+     *  Note that this function does not guarantee that the factory will actually create the sender, as it does not execute any code. It only extracts the factory address from the initCode.
      */
     function getFactoryAddress(bytes calldata initCode) external pure returns (address factory) {
         factory = address(bytes20(initCode[0 : 20]));
     }
 
-
+    /**
+     * 
+     * 
+     */
 }
