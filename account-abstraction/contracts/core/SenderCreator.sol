@@ -125,7 +125,8 @@ contract SenderCreator is ISenderCreator {
      * @param initCode - The initCode value from a UserOp. contains 20 bytes of factory address,
      *                   followed by calldata.
      * @return sender - The returned address of the created account, or zero address on failure.
-     * @return factory 
+     * @return factory - The factory address extracted from the initCode. Note that this function does not 
+     *                    guarantee that the sender will actually be created, as it executes
      */
     function getSenderAndFactory(bytes calldata initCode) external view returns (address sender, address factory) {
         factory = address(bytes20(initCode[0 : 20]));
