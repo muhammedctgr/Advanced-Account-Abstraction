@@ -119,4 +119,13 @@ contract SenderCreator is ISenderCreator {
     function getInitCallData(bytes calldata initCode) external pure returns (bytes memory initCallData) {
         initCallData = initCode[20 :];
     }
+
+    function getSenderAndFactory(bytes calldata initCode) external view returns (address sender, address factory) {
+        factory = address(bytes20(initCode[0 : 20]));
+        bytes memory initCallData = initCode[20 :];
+        (bool success, bytes memory result) = factory.staticcall(initCallData);
+        if (success && result.length >= 32) {
+            sender = abi.decode(result, (address));
+        }
+    }
 }
