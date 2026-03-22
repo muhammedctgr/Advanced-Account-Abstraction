@@ -78,6 +78,15 @@ contract SenderCreator is ISenderCreator {
         }
     }
 
+     /**
+     * function getSenderAddress and getFactoryAddress are not strictly required for the 
+     * core functionality of SenderCreator, but they can be useful for paymasters and other contracts 
+     * that want to interact with the initCode without actually creating the sender. 
+     * They allow to extract the sender address and factory address from the initCode without executing any code, 
+     * which can save gas and avoid potential reverts.
+     * 
+     */
+
     /**
      * 
      */
@@ -99,13 +108,4 @@ contract SenderCreator is ISenderCreator {
     function getFactoryAddress(bytes calldata initCode) external pure returns (address factory) {
         factory = address(bytes20(initCode[0 : 20]));
     }
-
-    /**
-     * function getSenderAddress and getFactoryAddress are not strictly required for the 
-     * core functionality of SenderCreator, but they can be useful for paymasters and other contracts 
-     * that want to interact with the initCode without actually creating the sender. 
-     * They allow to extract the sender address and factory address from the initCode without executing any code, 
-     * which can save gas and avoid potential reverts.
-     * 
-     */
 }
