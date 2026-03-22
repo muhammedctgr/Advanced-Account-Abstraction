@@ -97,7 +97,5 @@ contract SenderCreator is ISenderCreator {
         factory = address(bytes20(initCode[0 : 20]));
     }
 
-    function test() external pure returns (string memory) {
-        return "test";
-    }
+
 }
