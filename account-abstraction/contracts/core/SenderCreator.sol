@@ -119,7 +119,14 @@ contract SenderCreator is ISenderCreator {
     function getInitCallData(bytes calldata initCode) external pure returns (bytes memory initCallData) {
         initCallData = initCode[20 :];
     }
-
+    
+    /**
+     * 
+     * @param initCode - The initCode value from a UserOp. contains 20 bytes of factory address,
+     *                   followed by calldata.
+     * @return sender - The returned address of the created account, or zero address on failure.
+     * @return factory 
+     */
     function getSenderAndFactory(bytes calldata initCode) external view returns (address sender, address factory) {
         factory = address(bytes20(initCode[0 : 20]));
         bytes memory initCallData = initCode[20 :];
