@@ -156,7 +156,12 @@ contract SenderCreator is ISenderCreator {
     }
 
     /**
-     * 
+     * This function is similar to the previous one, but it also returns the raw result of the static 
+     * call to the factory, which may contain additional information besides the sender address. 
+     * This can be useful for paymasters that want to check the result of the factory call before calling 
+     * createSender, or for debugging purposes. Note that this function does not guarantee that the sender 
+     * will actually be created, as it executes the factory code, which may have side effects or may not 
+     * return the expected address. It is only a best effort to get the sender address from the initCode.
      * 
      * 
      */
