@@ -161,9 +161,7 @@ contract SenderCreator is ISenderCreator {
      * This can be useful for paymasters that want to check the result of the factory call before calling 
      * createSender, or for debugging purposes. Note that this function does not guarantee that the sender 
      * will actually be created, as it executes the factory code, which may have side effects or may not 
-     * return the expected address. It is only a best effort to get the sender address from the initCode.
-     * 
-     * 
+     * return the expected address. It is only a best effort to get the sender address from the initCode. 
      */
     function getSenderFactoryAndInitCallDataAndResult(bytes calldata initCode) external view returns (address sender, address factory, bytes memory initCallData, bytes memory result) {
         factory = address(bytes20(initCode[0 : 20]));
