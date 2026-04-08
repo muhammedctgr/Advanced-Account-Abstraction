@@ -140,7 +140,10 @@ contract SenderCreator is ISenderCreator {
     /**
      * this function combines the previous three functions into one, to get the sender address, 
      * factory address and initCallData in one call. This can save gas for paymasters that want 
-     * to check all three values before calling createSender. 
+     * to check all three values before calling createSender. Note that this function does not 
+     * guarantee that the sender will actually be created, as it executes the factory code, which 
+     * may have side effects or may not return the expected address. It is only a best effort to 
+     * get the sender address from the initCode.
      * 
      */
     function getSenderFactoryAndInitCallData(bytes calldata initCode) external view returns (address sender, address factory, bytes memory initCallData) {
