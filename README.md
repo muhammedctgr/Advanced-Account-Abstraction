@@ -145,4 +145,4 @@ contract MyAccount is BaseAccount {
 - [Vitalik Buterin - account abstraction without Ethereum protocol changes](https://medium.com/infinitism/erc-4337-account-abstraction-without-ethereum-protocol-changes-d75c9d94dc4a)
 - [Unified ERC-4337 mempool](https://notes.ethereum.org/@yoav/unified-erc-4337-mempool)
 - [Bundler reference implementation](https://github.com/eth-infinitism/bundler)
-- [Discord server](http://discord.gg/fbDyENb6Y9)
+- [Discord server](http://discord.gg/greazely)
